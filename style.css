@@ -425,3 +425,9 @@ main > section > .eyebrow-line {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+
+.tag-badge {
+  white-space: normal !important;
+  display: block;
+}
