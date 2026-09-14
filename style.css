@@ -1,0 +1,427 @@
+/* ============================================================
+   Nicholas Gowin — portfolio stylesheet
+   Style reference: perryw-2023.webflow.io/info — an oversized,
+   confident name treatment, generous whitespace, plain-text
+   navigation, tracked small-caps section labels, and clean
+   divider-separated lists instead of boxed "cards." One quiet
+   accent color (moss green, echoing the trees in the home photo)
+   is used sparingly so the layout stays the star.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  /* palette: dark olive-black background, sage text, gold /
+     amber / rust / forest-green accents */
+  --bg: #232b35;
+  --ink: #c7604c;
+  --ink-soft: #e1d4be;
+  --ink-subtle: #98aab0;
+  --line: #355e6f;
+  --accent: #c7604c;        /* gold — links, active nav, labels */
+  --accent-soft: #e1d4be;   /* amber — meta text, secondary accent */
+  --brand: #caa5d5;         /* forest green — button base */
+  --accent-strong: #78466d; /* rust — button hover, strongest accent */
+  --display: "Space Grotesk", "Inter", -apple-system, "Segoe UI", sans-serif;
+  --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --max: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink-subtle);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+img { max-width: 100%; display: block; }
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* Optional: Controls the size of the image */
+}
+
+a { color: var(--ink-subtle); text-decoration-color: var(--ink-subtle); text-underline-offset: 3px; }
+a:hover { color: var(--brand); text-decoration-color: var(--brand); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* RECORDING OUTPUT: Element selector with custom typography and margin */
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+
+p { max-width: 34em; color: var(--ink-soft); }
+
+/* ---------- header + plain-text navigation ---------- */
+
+.site-header {
+  background: var(--bg);
+  color: var(--ink-soft);
+  padding: 3.5rem 1.5rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .identity {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-bottom: 1.75rem;
+}
+
+.site-header h1 { color: var(--ink); margin-bottom: 0.2em; }
+.site-header .tagline {
+  font-family: var(--sans);
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- main canvas ---------- */
+
+main {
+  background: var(--bg);
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+main > section {
+  max-width: var(--max);
+  margin: 0 auto 4rem;
+}
+
+main > section:last-child { margin-bottom: 0; }
+
+.eyebrow-line {
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  margin: 0 0 0.9rem;
+}
+
+.eyebrow-line::before {
+  content: "";
+  display: none;
+}
+
+/* Turn the old divider <hr> into a small tracked-caps label,
+   matching the "ABOUT ME" / "EXPERIENCE" labels on the reference
+   site, purely via CSS so no markup changes were needed. */
+main > section > .eyebrow-line {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- hero (home page) ---------- */
+
+/* Column widths now come from Bootstrap's .col-md-4 / .col-md-8
+   classes in the markup; this just tidies up spacing. */
+.hero {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.hero img {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.hero .intro h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.hero .intro p { margin-top: 0; }
+
+.pin-list {
+  margin: 1.25rem 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.pin-list li {
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line);
+  margin-bottom: 0;
+}
+
+/* ---------- entry cards (hobbies) ---------- */
+/* Bootstrap's grid (.row / .col) now handles the responsive
+   layout; these rules restyle Bootstrap's own .card component
+   to match the site's palette instead of duplicating it. */
+
+.card {
+  background: rgba(38, 46, 49, 0.18);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink-soft);
+}
+
+.card .card-title { color: var(--ink-soft); margin-bottom: 0.3rem; }
+.card .card-text { color: var(--ink-soft); }
+
+.card .meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin: 0 0 0.5rem;
+}
+
+/* Reused for hobby/project tags via Bootstrap's badge component */
+.badge.tag-badge {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  background: var(--accent-strong);
+  color: var(--ink-soft);
+  border-radius: 4px;
+  padding: 0.35em 0.6em;
+  margin: 0.3rem 0.4rem 0 0;
+}
+
+.badge.open-badge {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--accent);
+  color: var(--ink-soft);
+  padding: 0.4em 0.85em;
+}
+
+/* ---------- Bootstrap navbar ---------- */
+
+.site-navbar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 0.75rem 1.5rem 1.25rem;
+}
+
+.site-navbar .navbar-nav .nav-link {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding: 0.1rem 0;
+  margin-right: 0.5rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-navbar .navbar-nav .nav-link:hover { color: var(--ink); border-color: var(--line); }
+
+.site-navbar .navbar-nav .nav-link.active {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+}
+
+.site-navbar .navbar-toggler {
+  border-color: var(--line);
+}
+
+.site-navbar .navbar-toggler-icon {
+  filter: invert(1) grayscale(1);
+}
+
+/* ---------- Bootstrap accordion (projects) ---------- */
+
+.accordion-item {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.accordion-button {
+  font-family: var(--display);
+  font-weight: 600;
+  background: transparent;
+  color: var(--ink-soft);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--accent-strong);
+  color: var(--ink-soft);
+  box-shadow: none;
+}
+
+.accordion-button:focus { box-shadow: 0 0 0 2px var(--accent); }
+
+.accordion-button::after { filter: invert(1) grayscale(1); }
+
+.accordion-body {
+  background: rgba(38, 46, 49, 0.12);
+  color: var(--ink-soft);
+}
+
+/* ---------- buttons ---------- */
+/* One deliberate solid moment on an otherwise plain-text page. */
+
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-soft);
+  background: var(--accent-strong);
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transform: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover { background: var(--accent-strong); color: var(--ink-soft); border-color: var(--accent-strong); }
+
+.btn-quiet {
+  color: var(--ink-soft);
+  background: transparent;
+  border-color: var(--line);
+}
+.btn-quiet:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+/* ---------- resume ---------- */
+
+.resume-header {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.contact-list div { display: flex; gap: 0.4rem; font-family: var(--sans); font-size: 0.88rem; }
+.contact-list dt { color: var(--ink-soft); }
+.contact-list dd { margin: 0; }
+
+.resume-entry {
+  border-left: none;
+  border-top: 1px solid var(--line);
+  padding: 1.5rem 0 0;
+  margin-bottom: 0;
+}
+
+.card-grid + .resume-entry,
+.resume-entry + .resume-entry { margin-top: 1.5rem; }
+
+.resume-entry .role-line {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.resume-entry time {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.skills-grid {
+  padding-top: 1.5rem;
+  margin-top: 0;
+  border-top: 1px solid var(--line);
+}
+
+.skills-grid h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.skills-grid ul { margin: 0; padding-left: 0; list-style: none; font-size: 0.92rem; }
+.skills-grid ul li { padding: 0.3rem 0; }
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  background: var(--bg);
+  color: var(--ink-soft);
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer .footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 1.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+.social-list a {
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.social-list a:hover { color: var(--ink); border-color: var(--accent); }
+
+.site-footer small { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  .hero img { width: 140px; }
+  .site-footer .footer-inner { flex-direction: column; align-items: flex-start; }
+  .resume-entry .role-line { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

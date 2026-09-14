@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicholas Gowin — Resume</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    BOOTSTRAP CLASS ANNOTATIONS (Step 4 requirement — three classes explained)
+
+    Bootstrap class     | Element using it                  | What it does
+    --------------------|------------------------------------|----------------------------------------------------------
+    container           | <div class="container"> around     | Centers the page content in a fixed max-width column and
+                         | <main> on every page                | adds responsive left/right gutters that shrink on mobile.
+    row-cols-md-2        | Hobby card grid (hobbies.html)      | Tells the Bootstrap grid to lay out 2 cards per row once
+                         |                                      | the viewport reaches "md" width, and stack to 1 per row
+                         |                                      | below that — no custom media query needed.
+    accordion-button     | Project title buttons (projects.html)| Styles a clickable header that expands/collapses its
+                         |                                      | matching accordion-body, and (via aria-expanded) tells
+                         |                                      | assistive tech whether that panel is open or closed.
+  -->
+
+  <header class="site-header">
+    <div class="identity">
+      <p class="tagline" style="margin-bottom:0.2em;">Nicholas Gowin</p>
+      <h1>Resume</h1>
+    </div>
+  </header>
+
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="hobbies.html">Hobbies</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="resume.html">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <section class="resume-header">
+        <h2>Nicholas Gowin</h2>
+        <p style="margin-bottom:0;">Computer science student · software development</p>
+        <dl class="contact-list">
+          <div><dt>Phone</dt><dd><a href="tel:7202404837">720.240.4837</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:nicholasgowin1@gmail.com">nicholasgowin1@gmail.com</a></dd></div>
+          <div><dt>Location</dt><dd>Boulder, CO</dd></div>
+        </dl>
+        <p class="d-flex align-items-center gap-3 flex-wrap">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Print this resume</a>
+          <span class="badge open-badge rounded-pill">Open to internships</span>
+        </p>
+      </section>
+
+      <section aria-labelledby="objective-heading">
+        <hr class="eyebrow-line">
+        <h2 id="objective-heading">Objective</h2>
+        <p>
+          Second-year computer science student with a growth mindset
+          looking for opportunities in technology to continue my
+          professional and personal development.
+        </p>
+      </section>
+
+      <section aria-labelledby="education-heading">
+        <hr class="eyebrow-line">
+        <h2 id="education-heading">Education</h2>
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>University of Colorado, Boulder</h3>
+            <time datetime="2029">Expected Spring 2029</time>
+          </div>
+          <p>Computer Science, GPA: 3.93</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="experience-heading">
+        <hr class="eyebrow-line">
+        <h2 id="experience-heading">Experience</h2>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>Line Cook — Blue Sky Bistro</h3>
+            <time datetime="2024-08">August 2024 – Current</time>
+          </div>
+          <ul>
+            <li>Supported broad responsibilities across cooking, customer interactions, kitchen opening/closing, and other sundry duties.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>Personal Visual Assistant</h3>
+            <time datetime="2024-01/2025-08">January 2024 – August 2025</time>
+          </div>
+          <p class="meta" style="text-transform:none; letter-spacing:0;">Personal assistant to a blind and partially deaf client</p>
+          <ul>
+            <li>Served as a personal assistant to a blind and partially deaf client; role required strong adaptability, problem solving, communication, and customer service skills.</li>
+            <li>Built RV solar charging system.</li>
+            <li>Implemented home automation.</li>
+            <li>Provided other services including driving, home repairs, and landscaping.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>Repair Technician — Emporia Energy</h3>
+            <time datetime="2023-07/2023-08">July 2023 – August 2023</time>
+          </div>
+          <ul>
+            <li>Summer internship as a repair technician for a growing home energy management company.</li>
+            <li>Used digital multimeters for troubleshooting and repairing over ten thousand smart plugs.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>Founder — Cleaning on Wheels</h3>
+            <time datetime="2023-05/2024-09">May 2023 – September 2024</time>
+          </div>
+          <ul>
+            <li>Launched a mobile automotive detailing service to learn about entrepreneurship and gain work experience.</li>
+            <li>Managed marketing, budgeting, and reinvestment of revenue to grow the business.</li>
+            <li>Marketed via social media and interpersonal networking.</li>
+            <li>Earned referrals and repeat clientele through detail oriented work and strong customer focus.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section aria-labelledby="projects-heading">
+        <hr class="eyebrow-line">
+        <h2 id="projects-heading">Projects</h2>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>GPS Driven RC Car <span class="meta" style="text-transform:none; letter-spacing:0;">· C++, Arduino IDE</span></h3>
+            <time datetime="2026-05">May 2026 – Current</time>
+          </div>
+          <ul>
+            <li>Took apart an RC car and hooked up electronics to an Arduino Uno.</li>
+            <li>Added a GPS module and developed firmware that steers the car to set waypoints.</li>
+            <li>Listens for a radio frequency signal to begin the drive.</li>
+            <li>Added AI detection with a camera module on a Raspberry Pi to trigger the radio frequency signal.</li>
+          </ul>
+        </article>
+
+        <article class="resume-entry">
+          <div class="role-line">
+            <h3>Telemetry Firmware for CBE1 <span class="meta" style="text-transform:none; letter-spacing:0;">· C, Git</span></h3>
+            <time datetime="2026-09">September 2026 – Current</time>
+          </div>
+          <ul>
+            <li>Took data from the CAN bus and sent it to a remote server via cellular.</li>
+            <li>Took data from the server and visualized it.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section aria-labelledby="skills-heading">
+        <hr class="eyebrow-line">
+        <h2 id="skills-heading">Skills</h2>
+        <div class="row skills-grid">
+          <div class="col-sm-4 mb-4">
+            <h3>Languages</h3>
+            <ul>
+              <li>C++</li>
+              <li>C</li>
+              <li>Java</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>BASH</li>
+              <li>TypeScript</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 mb-4">
+            <h3>Frameworks</h3>
+            <ul>
+              <li>React</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+          <div class="col-sm-4 mb-4">
+            <h3>Developer Tools</h3>
+            <ul>
+              <li>Docker</li>
+              <li>Git</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>&copy; 2026 Nicholas Gowin. Built by hand, one grid square at a time.</small>
+      <ul class="social-list">
+        <li><a href="https://github.com/nicholasgowin1">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nicholas-gowin-403a16380/">LinkedIn</a></li>
+        <li><a href="mailto:nicholasgowin1@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
