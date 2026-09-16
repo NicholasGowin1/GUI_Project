@@ -427,7 +427,16 @@ main > section > .eyebrow-line {
 }
 
 
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;      /* allows tags to drop to next line */
+  overflow: visible;    /* make sure nothing is clipping them */
+  white-space: normal;  /* override any inherited nowrap */
+  gap: 8px;
+}
+
 .tag-badge {
-  white-space: normal !important;
-  display: block;
+  display: inline-block;
+  white-space: nowrap;   /* keeps each tag's own text on one line */
+  flex-shrink: 0;         /* stops flex from squishing/hiding the tag */
 }
